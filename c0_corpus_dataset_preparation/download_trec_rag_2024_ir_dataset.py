@@ -27,7 +27,6 @@ def setup_logging(log_dir: Path):
         ]
     )
 
-
 def download_with_ir_datasets(base_dir: Path, download_corpus: bool = True,
                                download_topics: bool = True,
                                download_qrels: bool = True):
@@ -216,7 +215,6 @@ def download_with_ir_datasets(base_dir: Path, download_corpus: bool = True,
     logger.info("Download Complete!")
     logger.info("=" * 80)
 
-
 def convert_topics_txt_to_jsonl(topics_txt_path: Path, topics_jsonl_path: Path):
     """
     Convert topics from TSV format to JSONL format.
@@ -284,7 +282,6 @@ def convert_topics_txt_to_jsonl(topics_txt_path: Path, topics_jsonl_path: Path):
     except Exception as e:
         logger.error(f"Failed to convert topics: {e}")
         logger.info("")
-
 
 def main():
     parser = argparse.ArgumentParser(
@@ -420,18 +417,6 @@ Examples:
             topics_jsonl_path = processed_dir / "topics.rag24.test.ir_datasets.jsonl"
 
         convert_topics_txt_to_jsonl(topics_txt_path, topics_jsonl_path)
-
-    # Final summary
-    logger.info("=" * 80)
-    logger.info("Process Complete!")
-    logger.info("=" * 80)
-    logger.info("")
-    logger.info("Next Steps:")
-    logger.info("1. Check the downloaded files in the src directory")
-    logger.info("2. If topics were downloaded, consider converting to JSONL: --convert-topics")
-    logger.info("3. Use the data for your retrieval experiments")
-    logger.info("")
-    logger.info("=" * 80)
 
 
 if __name__ == "__main__":

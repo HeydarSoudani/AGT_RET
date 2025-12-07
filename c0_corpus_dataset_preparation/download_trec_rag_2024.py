@@ -27,6 +27,7 @@ def setup_logging(log_dir: Path):
         ]
     )
 
+# TODO: Add download nuggets: https://trec.nist.gov/data/rag2024.html
 
 def download_corpus(base_dir: Path):
     """
@@ -95,7 +96,6 @@ def download_corpus(base_dir: Path):
         if result.returncode == 0:
             logger.info(f"✓ Extracted to: {src_dir}/")
             logger.info("")
-
             # Get corpus statistics
             logger.info("Corpus extracted successfully!")
             logger.info("")
@@ -108,38 +108,6 @@ def download_corpus(base_dir: Path):
 
     except Exception as e:
         logger.error(f"Failed to download corpus: {e}")
-        logger.info("")
-        logger.info("Alternative Options:")
-        logger.info("")
-
-        logger.info("Option 1: Using ir_datasets (Recommended)")
-        logger.info("-" * 80)
-        logger.info("Install: pip install ir-datasets")
-        logger.info("")
-        logger.info("Usage in Python:")
-        logger.info("  import ir_datasets")
-        logger.info("  dataset = ir_datasets.load('msmarco-v2.1-doc-segmented')")
-        logger.info("  for doc in dataset.docs_iter():")
-        logger.info("      # doc.doc_id, doc.url, doc.title, doc.headings, doc.body")
-        logger.info("")
-
-        logger.info("Option 2: Manual Download with wget")
-        logger.info("-" * 80)
-        logger.info(f"wget -P {src_dir} {corpus_url}")
-        logger.info(f"tar -xvf {corpus_tar_path} -C {src_dir}")
-        logger.info("")
-
-        logger.info("Option 3: Using PyTerrier")
-        logger.info("-" * 80)
-        logger.info("Install: pip install python-terrier")
-        logger.info("")
-        logger.info("Usage in Python:")
-        logger.info("  import pyterrier as pt")
-        logger.info("  pt.init()")
-        logger.info("  dataset = pt.get_dataset('irds:msmarco-v2.1-doc-segmented')")
-        logger.info("")
-
-
 
 def download_topics(base_dir: Path):
     """
@@ -314,7 +282,6 @@ def download_qrels(base_dir: Path):
         except Exception as e:
             logger.error(f"Failed to download {qrels_info['name']}: {e}")
             logger.info("")
-
 
 
 def main():
