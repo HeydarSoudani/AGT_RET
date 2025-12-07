@@ -103,5 +103,5 @@ notebooks/
 
 archive/
 corpus_datasets/
-run_output/
+run_outputs/
 script_logging/
