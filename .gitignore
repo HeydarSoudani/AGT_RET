@@ -103,4 +103,6 @@ notebooks/
 
 archive/
 run_outputs/
+corpus_datasets/
 script_logging/
+_figs/

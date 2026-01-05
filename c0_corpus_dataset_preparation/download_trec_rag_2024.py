@@ -404,3 +404,7 @@ if __name__ == "__main__":
     main()
 
 # python c0_corpus_dataset_preparation/download_trec_rag_2024.py --corpus
+
+
+# To merge the segmented files into a single jsonl file, run:
+# zcat /projects/0/prjs0834/heydars/AGT_RET/src/msmarco_v2.1_doc_segmented/msmarco_v2.1_doc_segmented_*.json.gz > msmarco_v2.1_doc_segmented.jsonl
